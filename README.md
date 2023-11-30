@@ -33,9 +33,9 @@ docker-compose down
 
 ## Documentation
 
-La liste des routes est disponible dans le dossier [docs](docs/REST.md)*
+La liste des routes est disponible dans le dossier [docs](docs/REST.md)\*
 
-Une collection Insomnia est disponible dans le dossier [docs](docs/Insomnia.json)*
+Une collection Insomnia est disponible dans le dossier [docs](docs/Insomnia.json)\*
 
 ## Architecture
 
@@ -58,4 +58,9 @@ Authors : La table Authors contient les informations des auteurs.
 Users : La table Users contient les informations des utilisateurs.
 Loans : La table Loans contient les informations des emprunts.
 
+## TODO
 
+- [ ] Ajouter des tests unitaires
+- [ ] Ajouter des tests d'intégration
+- [ ] Ajouter l'authentification
+- [ ] Ajouter la pagination
