@@ -64,3 +64,4 @@ Loans : La table Loans contient les informations des emprunts.
 - [ ] Ajouter des tests d'intégration
 - [ ] Ajouter l'authentification
 - [ ] Ajouter la pagination
+- [ ] Ajouter les interfaces de service
