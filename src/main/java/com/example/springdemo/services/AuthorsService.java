@@ -36,8 +36,13 @@ public class AuthorsService {
         Authors author = authorsRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Auteur non trouvé avec id : " + id));
 
-        author.setFirstName(authorDetails.getFirstName());
-        author.setLastName(authorDetails.getLastName());
+        if (authorDetails.getFirstName() != null) {
+            author.setFirstName(authorDetails.getFirstName());
+        }
+
+        if (authorDetails.getLastName() != null) {
+            author.setLastName(authorDetails.getLastName());
+        }
 
         return authorsRepository.save(author);
     }
