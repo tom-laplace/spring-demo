@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: bibliodb
+      POSTGRES_USER: utilisateur
+      POSTGRES_PASSWORD: motdepasse
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/bibliodb
+      SPRING_DATASOURCE_USERNAME: utilisateur
+      SPRING_DATASOURCE_PASSWORD: motdepasse
+    ports:
+      - "8080:8080"
+
+volumes:
+  db-data:
