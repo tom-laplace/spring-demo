@@ -1,6 +1,8 @@
 package com.example.springdemo.services;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -36,11 +38,11 @@ public class AuthorsService {
         Authors author = authorsRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Auteur non trouvé avec id : " + id));
 
-        if (authorDetails.getFirstName() != null) {
+        if (!ObjectUtils.isEmpty(authorDetails.getFirstName())) {
             author.setFirstName(authorDetails.getFirstName());
         }
 
-        if (authorDetails.getLastName() != null) {
+        if (!ObjectUtils.isEmpty(authorDetails.getLastName())) {
             author.setLastName(authorDetails.getLastName());
         }
 
