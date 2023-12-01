@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class JwtTokenFilter extends OncePerRequestFilter {
 
-    private String secretKey = "vnifiefzfnlefnnkntkjerbkerjbtkjb"; 
+    private String secretKey = "vnifiefzfnlefnnkntkjerbkerjbtkjb";
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -27,17 +27,17 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         if (token != null && token.startsWith("Bearer ")) {
             token = token.substring(7);
             Claims claims = Jwts.parser().setSigningKey(secretKey.getBytes()).parseClaimsJws(token).getBody();
-            String username = claims.getSubject();
-            if (username != null) {
+            String email = claims.getSubject();
+            if (email != null) {
                 SecurityContextHolder.getContext()
-                        .setAuthentication(new UsernamePasswordAuthenticationToken(username, null, null));
+                        .setAuthentication(new UsernamePasswordAuthenticationToken(email, null, null));
             }
         }
         filterChain.doFilter(request, response);
     }
 
-    public String createToken(String username) {
-        return Jwts.builder().setSubject(username).signWith(SignatureAlgorithm.HS512, secretKey.getBytes()).compact();
+    public String createToken(String email) {
+        return Jwts.builder().setSubject(email).signWith(SignatureAlgorithm.HS512, secretKey.getBytes()).compact();
     }
 
     public boolean validateToken(String token) {
