@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.springdemo.models.Authors;
-import com.example.springdemo.services.AuthorsService;
+import com.example.springdemo.services.authors.AuthorsServiceImpl;
 
 @RestController
 @RequestMapping("/api/authors")
 public class AuthorsController {
 
-    private final AuthorsService authorsService;
+    private final AuthorsServiceImpl authorsService;
 
-    public AuthorsController(AuthorsService authorsService) {
+    public AuthorsController(AuthorsServiceImpl authorsService) {
         this.authorsService = authorsService;
     }
 

@@ -1,4 +1,4 @@
-package com.example.springdemo.services;
+package com.example.springdemo.services.books;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,12 +14,12 @@ import com.example.springdemo.repositories.AuthorsRepository;
 import com.example.springdemo.repositories.BooksRepository;
 
 @Service
-public class BooksService {
+public class BooksServiceImpl implements IBooksService {
 
     private final BooksRepository booksRepository;
     private final AuthorsRepository authorsRepository;
 
-    public BooksService(BooksRepository booksRepository, AuthorsRepository authorsRepository) {
+    public BooksServiceImpl(BooksRepository booksRepository, AuthorsRepository authorsRepository) {
         this.booksRepository = booksRepository;
         this.authorsRepository = authorsRepository;
     }

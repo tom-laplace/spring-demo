@@ -11,16 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.springdemo.dto.LoansDTO;
 import com.example.springdemo.models.Loans;
-import com.example.springdemo.services.LoansService;
+import com.example.springdemo.services.loans.LoansServiceImpl;
+
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/loans")
 public class LoansController {
 
-    private final LoansService loansService;
+    private final LoansServiceImpl loansService;
 
-    public LoansController(LoansService loansService) {
+    public LoansController(LoansServiceImpl loansService) {
         this.loansService = loansService;
     }
 

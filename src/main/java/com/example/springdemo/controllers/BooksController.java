@@ -15,15 +15,15 @@ import java.util.Optional;
 
 import com.example.springdemo.dto.BooksDTO;
 import com.example.springdemo.models.Books;
-import com.example.springdemo.services.BooksService;
+import com.example.springdemo.services.books.BooksServiceImpl;
 
 @RestController
 @RequestMapping("/api/books")
 public class BooksController {
 
-    private final BooksService booksService;
+    private final BooksServiceImpl booksService;
 
-    public BooksController(BooksService booksService) {
+    public BooksController(BooksServiceImpl booksService) {
         this.booksService = booksService;
     }
 

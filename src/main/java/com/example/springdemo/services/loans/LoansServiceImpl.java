@@ -1,4 +1,4 @@
-package com.example.springdemo.services;
+package com.example.springdemo.services.loans;
 
 import org.springframework.stereotype.Service;
 
@@ -14,13 +14,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-public class LoansService {
+public class LoansServiceImpl implements ILoansService {
 
     private final LoansRepository loansRepository;
     private final UsersRepository usersRepository;
     private final BooksRepository booksRepository;
 
-    public LoansService(LoansRepository loansRepository, UsersRepository usersRepository,
+    public LoansServiceImpl(LoansRepository loansRepository, UsersRepository usersRepository,
             BooksRepository booksRepository) {
         this.loansRepository = loansRepository;
         this.usersRepository = usersRepository;

@@ -1,4 +1,4 @@
-package com.example.springdemo.services;
+package com.example.springdemo.services.authors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -10,11 +10,11 @@ import com.example.springdemo.models.Authors;
 import com.example.springdemo.repositories.AuthorsRepository;
 
 @Service
-public class AuthorsService {
+public class AuthorsServiceImpl implements IAuthorsService {
 
     private final AuthorsRepository authorsRepository;
 
-    public AuthorsService(AuthorsRepository authorsRepository) {
+    public AuthorsServiceImpl(AuthorsRepository authorsRepository) {
         this.authorsRepository = authorsRepository;
     }
 

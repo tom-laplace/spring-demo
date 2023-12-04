@@ -9,17 +9,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.springdemo.services.UsersService;
 import com.example.springdemo.models.Users;
+import com.example.springdemo.services.users.UsersServiceImpl;
+
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
 public class UsersController {
 
-    private final UsersService usersService;
+    private final UsersServiceImpl usersService;
 
-    public UsersController(UsersService usersService) {
+    public UsersController(UsersServiceImpl usersService) {
         this.usersService = usersService;
     }
 

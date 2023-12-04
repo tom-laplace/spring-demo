@@ -1,4 +1,4 @@
-package com.example.springdemo.services;
+package com.example.springdemo.services.users;
 
 import org.springframework.stereotype.Service;
 
@@ -8,11 +8,11 @@ import com.example.springdemo.repositories.UsersRepository;
 import java.util.List;
 
 @Service
-public class UsersService {
+public class UsersServiceImpl implements IUsersService {
 
     private final UsersRepository usersRepository;
 
-    public UsersService(UsersRepository usersRepository) {
+    public UsersServiceImpl(UsersRepository usersRepository) {
         this.usersRepository = usersRepository;
     }
 
