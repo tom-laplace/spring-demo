@@ -36,6 +36,11 @@ public class LoansController {
         return ResponseEntity.ok(loans);
     }
 
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Loans>> getAllLoansByUserId(@PathVariable Long userId) {
+        return ResponseEntity.ok(loansService.findAllLoansByUserId(userId));
+    }
+
     @PostMapping
     public ResponseEntity<Loans> addLoans(@RequestBody LoansDTO loans) {
         Loans savedLoans = loansService.addLoans(loans);

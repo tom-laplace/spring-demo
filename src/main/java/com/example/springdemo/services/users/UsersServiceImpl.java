@@ -1,5 +1,6 @@
 package com.example.springdemo.services.users;
 
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.example.springdemo.models.Users;
@@ -30,7 +31,15 @@ public class UsersServiceImpl implements IUsersService {
             throw new RuntimeException("L'objet n'est pas de type Users");
         }
 
+        // Hachage du mot de passe
+        String hashedPassword = hashPassword(users.getMotDePasseHash());
+        users.setMotDePasseHash(hashedPassword);
+
         return usersRepository.save(users);
+    }
+
+    private String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
     public Users updateUsers(Users users) {
@@ -39,6 +48,15 @@ public class UsersServiceImpl implements IUsersService {
 
     public void deleteUsers(Long id) {
         usersRepository.deleteById(id);
+    }
+
+    public void login(String email, String password) {
+        Users user = usersRepository.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé avec email : " + email));
+
+        if (!BCrypt.checkpw(password, user.getMotDePasseHash())) {
+            throw new RuntimeException("Mot de passe incorrect");
+        }
     }
 
 }

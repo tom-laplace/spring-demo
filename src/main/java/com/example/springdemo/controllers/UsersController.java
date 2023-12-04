@@ -41,6 +41,12 @@ public class UsersController {
         return ResponseEntity.ok(savedUsers);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<Void> login(@RequestBody String email, String password) {
+        usersService.login(email, password);
+        return ResponseEntity.ok().build();
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUsers(@PathVariable Long id) {
         usersService.deleteUsers(id);

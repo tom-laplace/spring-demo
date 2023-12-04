@@ -10,4 +10,5 @@ public interface IUsersService {
     Users addUsers(Users users);
     Users updateUsers(Users users);
     void deleteUsers(Long id);
+    void login(String email, String password);
 }

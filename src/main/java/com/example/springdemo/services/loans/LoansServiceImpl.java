@@ -58,6 +58,10 @@ public class LoansServiceImpl implements ILoansService {
         loansRepository.deleteById(id);
     }
 
+    public List<Loans> findAllLoansByUserId(Long userId) {
+        return loansRepository.findAllByUserId(userId);
+    }
+
     private boolean isLoanPossible(Users user, Books book) {
         return loansRepository.countAllLoansByUserId(user.getId()) < 3 && book.getNumberOfCopies() > 0;
     }

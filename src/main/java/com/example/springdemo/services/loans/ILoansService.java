@@ -13,4 +13,6 @@ public interface ILoansService {
     Loans addLoans(LoansDTO loans);
 
     void deleteLoans(Long id);
+
+    List<Loans> findAllLoansByUserId(Long userId);
 }
