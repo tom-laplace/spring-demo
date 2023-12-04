@@ -4,15 +4,21 @@
 
 - [Docker](https://docs.docker.com/install/)
 - [Docker Compose](https://docs.docker.com/compose/install/)
-- [Java 17](https://www.oracle.com/java/technologies/downloads/#java17)
-- [Maven](https://maven.apache.org/download.cgi)
+- [Maven](https://maven.apache.org/install.html)
 
 ## Lancement
 
-### Lancement de la base de données et de l'application (avec seeding)
+### Lancement de la base de données et de l'application
 
 ```shell
 docker-compose up -d
+```
+
+Si jamais vous avez une erreur, il suffit de lancer uniquement la base de données et de relancer l'application.
+
+```shell
+docker-compose up -d db
+mvn spring-boot:run
 ```
 
 ### Utilisation de l'API
@@ -35,8 +41,6 @@ docker-compose down
 
 La liste des routes est disponible dans le dossier [docs](docs/REST.md)\*
 
-Une collection Insomnia est disponible dans le dossier [docs](docs/Insomnia.json)\*
-
 ## Architecture
 
 ### Architecture technique
@@ -57,4 +61,3 @@ Books : La table Books contient les informations des livres.
 Authors : La table Authors contient les informations des auteurs.
 Users : La table Users contient les informations des utilisateurs.
 Loans : La table Loans contient les informations des emprunts.
-
